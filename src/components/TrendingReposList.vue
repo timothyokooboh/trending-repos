@@ -26,7 +26,7 @@ import TrendingReposListItem from "./TrendingReposListItem";
 export default {
     name: "TrendingReposList",
     components: {
-        TrendingReposListItem
+        TrendingReposListItem,
     },
     setup() {
 
@@ -45,9 +45,9 @@ export default {
             updateTrendingRepos()
         })
         
-
         return {
             trendingRepos,
+            infiniteHandler
         }
     },
 }

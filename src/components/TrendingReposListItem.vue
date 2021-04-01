@@ -18,7 +18,6 @@
                 <div class="text-sm py-1 px-2 rounded border border-red-300 text-red-600 hover:bg-red-200">Issues: {{issuesCount}}</div>
             </div>
             <div class="text-sm italic">Submited {{createdAt}} days ago by {{ownerName}}</div>
-            
         </div>
     </div>
     
