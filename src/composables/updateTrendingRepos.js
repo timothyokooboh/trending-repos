@@ -11,7 +11,8 @@ export default function updateTrendingReposList (apiResult) {
                 repoDescription: el.description,
                 repoName: el.name,
                 starsCount: el.stargazers_count,
-                issuesCount: el.open_issues_count
+                issuesCount: el.open_issues_count,
+                createdAt: el.created_at
             }
         })
 
