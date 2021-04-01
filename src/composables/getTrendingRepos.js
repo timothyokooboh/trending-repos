@@ -1,15 +1,14 @@
 
 import TrendingReposDataService from "../services/TrendingReposDataService";
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 
 export default function getTrendingRepos() {
     const pageNumber = ref(1);
-    const apiResult = reactive([]);
+    let apiResult = ref([]);
     
     const infiniteHandler = async () => {
         try {
             const result = await TrendingReposDataService.getTrendingRepos(pageNumber.value);
-            console.log(result)
             pageNumber.value +=1;
             apiResult.value = result.data.items;
         }

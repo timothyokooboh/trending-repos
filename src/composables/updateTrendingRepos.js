@@ -1,11 +1,12 @@
-import { reactive } from "vue";
+import { ref } from "vue";
 
 export default function updateTrendingReposList (apiResult) {
-    let trendingRepos = reactive([]);
+    let trendingRepos = ref([]);
 
     const updateTrendingRepos = () => {
         const newTrendingRepos = apiResult.value.map(el => {
             return {
+                id: el.id,
                 ownerAvatar: el.owner.avatar_url,
                 ownerName: el.owner.login,
                 repoDescription: el.description,
@@ -15,9 +16,7 @@ export default function updateTrendingReposList (apiResult) {
                 createdAt: el.created_at
             }
         })
-
-        trendingRepos.value = [...trendingRepos, ...newTrendingRepos]
-        console.log(trendingRepos);
+        trendingRepos.value = [...trendingRepos.value, ...newTrendingRepos]
     }
 
     return {
