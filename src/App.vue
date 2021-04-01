@@ -1,13 +1,17 @@
 <template>
-  <div class="bg-blue-700 text-green-300">hello world</div>
+  <div>
+    <trending-repos-list></trending-repos-list>
+  </div>
 </template>
 
 <script>
+import TrendingReposList from "./components/TrendingReposList";
 
 export default {
   name: 'App',
   components: {
-  }
+    TrendingReposList
+  },
 }
 </script>
 
