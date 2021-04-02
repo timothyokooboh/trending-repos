@@ -5,7 +5,7 @@ import { ref } from "vue";
 export default function getTrendingRepos() {
     let pageNumber = ref(1);
     let apiResult = ref([]);
-    let loading = ref(true)
+    let loading = ref(true);
     
     const infiniteHandler = async () => {
         loading.value = true;
@@ -38,8 +38,7 @@ export default function getTrendingRepos() {
 
             setTimeout(() => {
                 Swal.close()
-            }, 3000)
-              
+            }, 3000)   
         }
     }
 

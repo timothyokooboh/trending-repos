@@ -1,5 +1,5 @@
 <template>
-    <div ref='scrollComponent' class="mt-20">
+    <div ref="scrollComponent" class="mt-20">
         <trending-repos-list-item
             v-for="(repo, index) in trendingRepos"
             :key="repo.id"
@@ -48,7 +48,6 @@ export default {
         const {
             infiniteHandler,
             apiResult,
-            pageNumber,
             loading
         } = getTrendingRepos();
 
@@ -77,8 +76,6 @@ export default {
         
         return {
             trendingRepos,
-            infiniteHandler,
-            pageNumber,
             scrollComponent,
             loading
         }
