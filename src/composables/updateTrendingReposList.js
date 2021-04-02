@@ -13,7 +13,8 @@ export default function updateTrendingReposList (apiResult) {
                 repoName: el.name,
                 starsCount: el.stargazers_count,
                 issuesCount: el.open_issues_count,
-                createdAt: el.created_at
+                createdAt: el.created_at,
+                url: el.html_url
             }
         })
         trendingRepos.value = [...trendingRepos.value, ...newTrendingRepos]

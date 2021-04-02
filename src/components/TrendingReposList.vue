@@ -10,6 +10,7 @@
             :starsCount="repo.starsCount"
             :issuesCount="repo.issuesCount"
             :createdAt="repo.createdAt"
+            :url="repo.url"
             :index="index"
         >
         </trending-repos-list-item>
