@@ -1,14 +1,21 @@
 <template>
     <div 
-        class="py-4 px-8 font-sans text-gray-900 rounded shadow m-4"
+        class="py-4 px-8 font-sans text-gray-900 rounded shadow m-4 relative"
         :class="{'bg-gray-100': isEven}"
+        @mouseover="showLabel = true"
+        @mouseleave="showLabel = false"
     >
         <a 
             :href="url" 
             target="_blank" 
             class="no-underline"
         >
-
+            <div 
+                class="flex justify-end absolute top-o right-10"
+                v-if="showLabel"
+            >
+                <div class="inline-block bg-blue-100 text-blue-900 py-1 px-2 rounded text-xs">Visit repo</div>
+            </div>
             <div class="flex flex-wrap items-center">
                 <div class="mr-8 mb-2">
                     <img 
@@ -29,7 +36,6 @@
             </div>
         </a>
     </div>
-    
 </template>
 
 <script>
@@ -39,15 +45,42 @@ import daysFormatterHelperFunction from  "../composables/daysFormatter";
 export default {
     name: "TrendingReposListItem",
     props: {
-        ownerAvatar: String,
-        ownerName: String,
-        repoName: String,
-        repoDescription: String,
-        starsCount: Number,
-        issuesCount: Number,
-        createdAt: String,
-        url: String,
-        index: Number
+        ownerAvatar: {
+            type: String,
+            default: "hi"
+        },
+        ownerName: {
+            type: String,
+            default: ""
+        },
+        repoName: {
+            type: String,
+            default: ""
+        },
+        repoDescription: {
+            type: String,
+            default: ""
+        },
+        starsCount: {
+            type: Number,
+            default: 0
+        },
+        issuesCount: {
+            type: Number,
+            default: 0
+        },
+        createdAt: {
+            type: String,
+            default: ""
+        },
+        url: {
+            type: String,
+            default: ""
+        },
+        index: {
+            type: Number,
+            default: 0
+        }
     },
     setup(props) {
         const { index, createdAt } = toRefs(props);
