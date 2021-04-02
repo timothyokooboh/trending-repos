@@ -24,7 +24,7 @@
                         <div class="text-sm py-1 px-2 rounded mr-2 border border-green-300 text-green-600 hover:bg-green-200">Stars: {{starsCount}}</div>
                         <div class="text-sm py-1 px-2 rounded border border-red-300 text-red-600 hover:bg-red-200">Issues: {{issuesCount}}</div>
                     </div>
-                    <div class="text-sm italic">Submited {{createdAt}} days ago by {{ownerName}}</div>
+                    <div class="text-sm italic">Submited {{daysFormatter}} ago by {{ownerName}}</div>
                 </div>
             </div>
         </a>
@@ -34,6 +34,7 @@
 
 <script>
 import { ref, computed, toRefs } from "vue";
+import daysFormatterHelperFunction from  "../composables/daysFormatter";
 
 export default {
     name: "TrendingReposListItem",
@@ -49,16 +50,19 @@ export default {
         index: Number
     },
     setup(props) {
-        const { index } = toRefs(props);
+        const { index, createdAt } = toRefs(props);
         const showLabel = ref(false)
 
         const isEven = computed(() => {
             return index.value % 2;
         })
 
+        const { daysFormatter } = daysFormatterHelperFunction(createdAt)
+
         return {
             isEven,
-            showLabel
+            showLabel,
+            daysFormatter,
         }
     }
 }
