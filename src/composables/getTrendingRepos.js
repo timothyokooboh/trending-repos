@@ -12,7 +12,6 @@ export default function getTrendingRepos() {
 
         try {
             const result = await TrendingReposDataService.getTrendingRepos(pageNumber.value);
-            console.log(result)
             pageNumber.value +=1;
             apiResult.value = result.data.items;
             loading.value = false;
@@ -29,7 +28,6 @@ export default function getTrendingRepos() {
             }
         }
         catch(err) {
-            console.log(err)
             loading.value = false;
             Swal.fire({
                 title: 'Error!',

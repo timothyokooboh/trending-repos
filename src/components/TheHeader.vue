@@ -3,3 +3,9 @@
         <div>Trending Github Repos</div>
     </div>
 </template>
+
+<script>
+export default {
+    name: "TheHeader"
+}
+</script>
